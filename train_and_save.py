@@ -18,6 +18,5 @@ try:
         }, f)
 
     print(f"✅ Successfully saved model.pkl and encoders.pkl at {BASE_DIR}")
-
 except Exception as e:
     print(f"\n❌ ERROR saving files: {e}")
