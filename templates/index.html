@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Cricket Score Predictor - AI Model</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="static/style.css" /> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    
+    <header class="main-header">
+        <div class="header-content container">
+            <div class="center-content"> 
+                <span class="logo">Cricket AI Predictor</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>🏏 Cricket Score Predictor</h1>
+
+        <div class="card">
+            <div class="form-row">
+                <div>
+                    <label for="bat_team">Batting Team</label>
+                    <select id="bat_team">
+                        {% for t in teams %}
+                            <option value="{{t}}">{{t}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="bowl_team">Bowling Team</label>
+                    <select id="bowl_team">
+                        {% for t in teams %}
+                            <option value="{{t}}">{{t}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="venue">Venue</label>
+                    <select id="venue">
+                        {% for v in venues %}
+                            <option value="{{v}}">{{v}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div>
+                    <label for="overs">Overs (e.g. 10.4)</label>
+                    <input id="overs" type="number" step="0.1" value="10.0" min="5" max="20" /> 
+                </div>
+
+                <div>
+                    <label for="runs_last_5">Runs in last 5 overs</label>
+                    <input id="runs_last_5" type="number" value="40" min="0" />
+                </div>
+
+                <div>
+                    <label for="wickets_last_5">Wickets in last 5 overs</label>
+                    <input id="wickets_last_5" type="number" value="1" min="0" max="10" />
+                </div>
+            </div>
+
+            <div class="actions">
+                <button id="refreshBtn" class="secondary-btn">Refresh</button>
+                <button id="predictBtn">Predict Score</button>
+            </div>
+            <div class="result" id="resultBox" style="display:none">
+                <h2>Prediction Result</h2>
+                <p id="summaryText">Calculating...</p>
+                <canvas id="probChart" height="150"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Cricket Predictor Model. | Developed by Abu Kholayed</p>
+        <p>Connect: <a href="https://www.facebook.com/abu.kholayed.5" target="_blank" rel="noopener noreferrer">Facebook ID</a></p>
+    </footer>
+
+    <script src="static/app.js"></script>
+</body>
+</html>
