@@ -5,8 +5,9 @@ import os
 
 app = Flask(__name__, static_folder="static", template_folder="templates")
 
-MODEL_PATH = "model.pkl"
-ENC_PATH = "encoders.pkl"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "model.pkl")
+ENC_PATH = os.path.join(BASE_DIR, "encoders.pkl")
 
 model = None
 le_bat = le_bowl = le_venue = None
